@@ -1,0 +1,51 @@
+.home{
+    padding: 20px 10px;
+    text-align: center;
+}
+
+.home h1{
+    color : red;
+    font-size: 2.2rem;
+    text-shadow: 2px 2px 0px #FF8080;
+}
+
+.section-size{
+    padding: 10px 0px;
+}
+
+.section-size h3{
+    color: #FF8080;
+    font-size: 1.5rem;
+}
+
+.size-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 20px 0px;
+}
+
+
+.size-item{
+    border: 1px solid rgb(255, 153, 153);
+    padding: 20px;
+    border-radius: 10px;   
+    box-shadow: 10px 10px 0px red;
+    transition: .3s;
+    margin: 20px 10px;
+    cursor:pointer;
+}
+
+.size-item:hover{
+    transform: scale(1.04);
+    box-shadow: 12px 12px 0px rgb(255, 153, 153);
+}
+
+.size-item.active{
+    border: 1px solid red;
+    color: white;
+    border-radius: 10px;   
+    box-shadow: 10px 10px 0px rgb(255, 153, 153);
+    background-color: red;
+    transform: scale(1.2);
+}
