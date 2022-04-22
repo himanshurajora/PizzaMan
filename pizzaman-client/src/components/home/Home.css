@@ -13,6 +13,11 @@
     padding: 10px 0px;
 }
 
+.section-size .section-div{
+     display: flex;
+    justify-content: center;
+}
+
 .section-size h3{
     color: #FF8080;
     font-size: 1.5rem;
@@ -23,8 +28,8 @@
     flex-wrap: wrap;
     justify-content: space-evenly;
     padding: 20px 0px;
+    width: 800px;
 }
-
 
 .size-item{
     border: 1px solid rgb(255, 153, 153);
@@ -34,6 +39,7 @@
     transition: .3s;
     margin: 20px 10px;
     cursor:pointer;
+    width: 200px;
 }
 
 .size-item:hover{
@@ -49,3 +55,10 @@
     background-color: red;
     transform: scale(1.2);
 }
+
+@media screen and (max-width: 800px){
+    .size-item{
+        width: min(300px, 80%);
+    }
+}
+
