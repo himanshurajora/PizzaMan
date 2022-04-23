@@ -1,4 +1,4 @@
-import { Body, Controller, Post } from "@nestjs/common";
+import { Body, Controller, Get, Param, Post } from "@nestjs/common";
 import { AuthParams, AuthRegisterParams } from "./auth-interface";
 import { AuthService } from "./auth.service";
 
@@ -15,6 +15,12 @@ export class AuthController{
 
     @Post('register')
     async register(@Body() authRegisterParams : AuthRegisterParams){
+        console.log(authRegisterParams)
         return this.authService.register(authRegisterParams);
+    }
+
+    @Get(':id')
+    async getUser(@Param('id') id: number){
+        return this.authService.remove(id);
     }
 }
