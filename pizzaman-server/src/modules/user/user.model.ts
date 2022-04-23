@@ -1,4 +1,5 @@
-import { Table, Model, Column, DataType } from 'sequelize-typescript'
+import { Table, Model, Column, DataType, HasMany } from 'sequelize-typescript'
+import { Cart } from '../cart/cart.model';
 
 
 // User model for sequelize ORM
@@ -36,4 +37,7 @@ export class User extends Model {
         allowNull: false,
     })
     password: string;
+
+    @HasMany(() => Cart)
+    Carts : Cart[];
 }
