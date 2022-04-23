@@ -8,6 +8,9 @@ import { CartModule } from './modules/cart/cart.module';
 import { OrdersModule } from './modules/orders/orders.module';
 import {SequelizeModule} from '@nestjs/sequelize'
 import { User } from './modules/user/user.model';
+import { Ingredents } from './modules/ingredients/ingredients.model';
+import { Cart, CartItems } from './modules/cart/cart.model';
+import { OrderItem, Orders } from './modules/orders/order.model';
 
 @Module({
   imports: [
@@ -23,9 +26,10 @@ import { User } from './modules/user/user.model';
       username: 'postgres',
       password: 'postgres',
       database: 'pizzastore',
-      models: [User],
+      models: [User, Ingredents, Cart, CartItems, Orders, OrderItem],
       autoLoadModels: true,
-      synchronize: true
+      synchronize: true,
+      // sync: {force: true}
     })
   ],
   controllers: [AppController],

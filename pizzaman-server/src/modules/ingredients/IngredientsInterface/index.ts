@@ -1,0 +1,1 @@
+import { IngredientsParams } from "./ingredients.interface";
