@@ -1,11 +1,11 @@
+
+
 .navbar {
-    background-image: linear-gradient(to right, #FD5D5D 0%, #ff0000 100%);
-    border-bottom: 2px solid #FFF7BC;
-    outline: 3px solid #C0EDA6;
+    background-image: var(--primary-gradient);
     border-radius: 0;
     box-shadow: 0 1px 0 rgba(0, 0, 0, .05);
     margin-bottom: 0;
-    padding: 10px 20px;
+    padding: 20px 30px;
     position: relative;
     z-index: 1000;
 }
@@ -45,11 +45,11 @@
 }
 
 .navbar-list li a:hover{
-    color: #FFF7BC;
+    color: var(--complementary-color);
 }
 
 .navbar-list li a:hover .navbar-icon {
-    fill: #FFF7BC;
+    fill: var(--complementary-color);
 }
 
 .navbar-icon {

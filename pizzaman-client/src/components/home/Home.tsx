@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './Home.css'
+import { Link } from 'react-router-dom'
 import { PizzaData } from './PizzaData';
 
 export default function Home() {
@@ -7,32 +8,16 @@ export default function Home() {
     const [pizzaSize, setPizzaSize] = useState<number>(NaN);
 
     return (
-        <div className="home">
-            <h1>Customize You Pizza</h1>
-            <section className='section-size'>
-                <h3>Select A Size</h3>
-                <div className="section-div">
-                    <div className='size-container'>
-                        {
-                            PizzaData.sizes.map(size => {
-                                return (
-                                    size.id === pizzaSize ?
-                                        <div className='size-item active' key={size.id} onClick={() => setPizzaSize(size.id)}>
-                                            <h4>{size.name}</h4>
-                                            <p>₹ {size.price}</p>
-                                        </div>
-                                        :
-                                        <div className='size-item' key={size.id} onClick={() => setPizzaSize(size.id)}>
-                                            <h4>{size.name}</h4>
-                                            <p>₹ {size.price}</p>
-                                        </div>
-                                )
-
-                            })
-                        }
-                    </div>
-                </div>
-            </section>
+        <div className="home section">
+            <div className="section-content">
+                <h1 className='section-title'>Customize You Pizza 🍕</h1>
+                <p className='section-subtitle'>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima sint deserunt omnis molestias, atque, libero labore modi vitae iusto nemo ea, sit distinctio excepturi nulla repudiandae ad delectus alias aperiam asperiores commodi officia blanditiis tempora facere? Ullam, iusto. Modi, reprehenderit!
+                </p>
+            </div>
+            <div className="section-options">
+                <Link to={'/select-size'} className='section-continue-button'>Continue</Link>
+            </div>
         </div>
     );
 }

@@ -1,5 +1,17 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Orelega+One&display=swap');
+/* Declare root variables */
+
+:root{
+  --primary-color: #00fbaa;
+  --primary-gradient-color: #00db79;
+  --primary-gradient: linear-gradient(to right,  var(--primary-color), var(--primary-gradient-color));
+  --primary-shadow-color: #a4ffda;
+  --secondary-color: #00d8fc;
+  --secondary-gradient-color: #00d1f9;
+  --complementary-color: #a4ffda;
+  --secondary-shadow-color: #b4f2ff;
+}
 
 *{
   margin: 0;
@@ -7,3 +19,67 @@
   box-sizing: border-box;
   font-family: Orelega One, cursive, sans-serif;
 }
+
+.section{
+  padding: 0px 20px;
+  height: calc(100vh - 174px);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.section-content{
+  max-width: 35%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 200px;
+}
+
+.section-content .section-subtitle{
+  font-size: medium;
+  margin-bottom: 20px;
+}
+
+.section-options{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 200px;
+}
+
+.section-title{
+    color : var(--primary-color);
+    font-size: 3rem;
+    text-shadow: 2px 7px 5px var(--complementary-color);
+}
+
+.section-continue-button{
+  padding: 20px;
+  background-color: var(--primary-color);
+  border:none;
+  border-radius: 10px;
+  font-size: 1.5rem;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+}
+
+
+@media screen and (max-width: 800px){
+  .section-content{
+    max-width: 100%;
+    margin: 0;
+  }
+  .section-options{
+    margin: 0;
+    justify-content: start;
+  }
+  .section{
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+}
+

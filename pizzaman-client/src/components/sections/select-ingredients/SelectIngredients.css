@@ -1,0 +1,8 @@
+.ingredient-container {
+    padding: 1px;
+}
+
+.ingredient-label{
+    color: var(--secondary-color);
+    font-size: large;
+}

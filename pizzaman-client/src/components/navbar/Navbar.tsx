@@ -12,7 +12,7 @@ export default function Navbar() {
                     <div className="right">
                         <ul className="navbar-list">
                             <li className="navbar-brand">
-                                <Link to="/">PizzaMan</Link>
+                                <Link to="/">PizzaMan 🍕</Link>
                             </li>
                         </ul>
                     </div>

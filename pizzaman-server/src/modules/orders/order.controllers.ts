@@ -14,7 +14,7 @@ export class OrderController {
 
     @UseGuards(AuthGuard('jwt'))
     @Post()
-    async addToCart(@Body() data, @Request() req){
+    async makeOrder(@Body() data, @Request() req){
         return await this.OrderService.addOrderItem(data, req.user.sub);
     }
 }

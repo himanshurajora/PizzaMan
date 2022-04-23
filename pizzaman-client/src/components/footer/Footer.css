@@ -1,0 +1,20 @@
+.footer{
+    height: 100px;
+}
+
+.footer-content{
+    text-align: center;
+}
+
+.footer-links ul li{
+    display: inline-block;
+    margin: 10px;
+}
+
+.footer-content h4{
+    color: var(--primary-gradient-color);
+}
+
+.footer-links ul li a{
+    color: var(--primary-color);
+}
