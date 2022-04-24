@@ -4,6 +4,7 @@
 
 :root{
   --primary-color: #00fbaa;
+  --primary-hover-color: #00e098;
   --primary-gradient-color: #00db79;
   --primary-gradient: linear-gradient(to right,  var(--primary-color), var(--primary-gradient-color));
   --primary-shadow-color: #a4ffda;
@@ -11,6 +12,9 @@
   --secondary-gradient-color: #00d1f9;
   --complementary-color: #a4ffda;
   --secondary-shadow-color: #b4f2ff;
+  --secondary-gradient: linear-gradient(to right,  var(--secondary-color), var(--secondary-gradient-color));
+  --danger-color: #fe3769;
+  --danger-hover-color: #d5004c;
 }
 
 *{
