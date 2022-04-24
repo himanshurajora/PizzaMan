@@ -6,3 +6,57 @@
     color: var(--secondary-color);
     font-size: large;
 }
+
+.section-size{
+    padding: 10px 0px;
+}
+
+.section-size .section-div{
+     display: flex;
+    justify-content: center;
+}
+
+
+.ingredient-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 20px 0px;
+}
+
+.ingredient-item{
+    border: 1px solid var(--primary-shadow-color);
+    padding: 2px;
+    border-radius: 10px;   
+    box-shadow: 2px 2px 0px var(--primary-color);
+    transition: .3s;
+    cursor:pointer;
+    width: 200px;
+    text-align: center;
+    margin: 1px;
+}
+
+.ingredient-item:hover{
+    transform: scale(1.04);
+    box-shadow: 3px 3px 0px var(--primary-shadow-color);
+}
+
+.ingredient-item.active{
+    border: 1px solid var(--secondary-color);
+    color: white;
+    border-radius: 10px;   
+    box-shadow: 3px 3px 0px var(--secondary-shadow-color);
+    background-color: var(--secondary-color);
+    transform: scale(1.05);
+}
+
+@media screen and (max-width: 800px){
+    .ingredient-item{
+        width: 300px;
+        text-align: center;
+    }
+    .section{
+        height: 100%;
+    }
+}

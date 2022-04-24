@@ -1,3 +1,5 @@
+import { IPizzaIngredient } from "../../interfaces";
+
 export declare interface PizzaItem{
     id: number
     name: string;
@@ -7,7 +9,7 @@ export declare interface PizzaItem{
 export declare interface PizzaData {
     sizes : PizzaItem[];
     crusts : PizzaItem[];
-    toppings : PizzaItem[];
+    toppings : IPizzaIngredient[];
 }
 
 export const PizzaData : PizzaData = {

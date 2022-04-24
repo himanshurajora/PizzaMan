@@ -21,7 +21,6 @@ export class OrderService {
             "ingredientId": item.ingredientId,
             "orderId": res.id,
         }))
-        console.log(orderItem)
 
         orderItem.forEach(async (item) => {
             return await this.orderItemModule.create<OrderItem>(item);
