@@ -1,6 +1,7 @@
 import { Injectable } from "@nestjs/common";
 import { InjectModel } from "@nestjs/sequelize";
 import { CartService } from "../cart/cart.service";
+import { Ingredents } from "../ingredients/ingredients.model";
 import { OrderItem, Orders } from "./order.model";
 
 @Injectable()
@@ -11,7 +12,11 @@ export class OrderService {
     async getOrderById(userId: number) {
         return await this.orderModule.findAll<Orders>({ where: { userId: userId }, include: [{ model: OrderItem }] });
     }
-    
+
+    // To fetch all order items by user id
+    async getAllOrders(userId: number) {
+        return await this.orderModule.findAll<Orders>({ where: { userId: userId }, include: [{ model: OrderItem, include: [Ingredents] }] });
+    }
 
     // To add order item to order
     async addOrderItem(order, userId) {
@@ -26,7 +31,7 @@ export class OrderService {
             return await this.orderItemModule.create<OrderItem>(item);
         })
         const CartId = this.cartService.getCartIdBYUserId(userId);
-        await this.cartService.removeCartItemByUserId((await CartId).map( Item => Item.id))
+        await this.cartService.removeCartItemByUserId((await CartId).map(Item => Item.id))
         await this.cartService.removeByUserId(userId)
         return res;
     }

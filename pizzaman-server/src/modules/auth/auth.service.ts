@@ -1,5 +1,5 @@
 import { ForbiddenException, Injectable } from "@nestjs/common";
-import { AuthParams, AuthRegisterParams } from "./auth-interface";
+import { AuthParams, AuthRegisterParams, TokenParams } from "./auth-interface";
 import * as argon from 'argon2';
 import { InjectModel } from "@nestjs/sequelize";
 import { User } from '../user/user.model'
@@ -44,7 +44,7 @@ export class AuthService {
             const passwordHash = await argon.hash(authRegisterParams.password);
 
             // create the user 
-            const user = await this.userModel.create<User>({...authRegisterParams, password: passwordHash});
+            const user = await this.userModel.create<User>({ ...authRegisterParams, password: passwordHash });
 
             // user without password
             const { password, ...result } = user.toJSON();
@@ -59,25 +59,37 @@ export class AuthService {
 
     // get the access token
     async signToken(userId: number, email: string) {
-        const data =  {
-            sub : userId,
-            email : email
+        const data = {
+            sub: userId,
+            email: email
         }
 
-        const token =  await this.jwt.signAsync(data, {
-            expiresIn: '15m',
+        const token = await this.jwt.signAsync(data, {
+            expiresIn: '2h',
             secret: 'secret'
         })
 
         return {
-            accessToken : token
+            accessToken: token
         }
     }
 
     // remove user
 
     async remove(id: number) {
-        return await this.userModel.destroy({where: {id}});
+        return await this.userModel.destroy({ where: { id } });
+    }
+
+    // validate use token 
+    async validateToken(token: TokenParams) {
+        try {
+            const user = this.jwt.verify(token.token, { secret: 'secret' })
+            return {
+                validate: true 
+            }
+        }catch(err){
+            return err
+        }
     }
 
 }

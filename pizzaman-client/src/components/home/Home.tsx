@@ -1,11 +1,6 @@
-import { useState } from 'react';
 import './Home.css'
 import { Link } from 'react-router-dom'
-import { PizzaData } from './PizzaData';
-
 export default function Home() {
-
-    const [pizzaSize, setPizzaSize] = useState<number>(NaN);
 
     return (
         <div className="home section">

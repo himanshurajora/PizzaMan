@@ -2,8 +2,8 @@
 import './Register.css';
 import * as axios from 'axios';
 import { ServerConfig } from '../../config/server.config';
-import { FormEvent, FormEventHandler } from 'react';
-import {useNavigate} from 'react-router-dom'
+import { FormEvent } from 'react';
+import { useNavigate } from 'react-router-dom'
 export default function Register() {
 
     const navigate = useNavigate();
@@ -19,7 +19,7 @@ export default function Register() {
             password: formData.get('password') as string
         }
         try {
-            const response = await axios.default.post(`${ServerConfig.development.authUrl}/register`, registerParams);  
+            await axios.default.post(`${ServerConfig.development.authUrl}/register`, registerParams);
             alert("User Created Successfully");
             navigate('/login');
         } catch (e: any) {

@@ -17,4 +17,9 @@ export class IngredientsController {
     async addIngredient(@Body() newIngredient: IngredientsParams) {
         return await this.ingredientsService.addIngredient(newIngredient);
     }
+
+    @Post('multi-ingredients')
+    async addManyIngredients(@Body() newIngredients: IngredientsParams[]){
+        return await this.ingredientsService.addManyIngredient(newIngredients)
+    }
 }

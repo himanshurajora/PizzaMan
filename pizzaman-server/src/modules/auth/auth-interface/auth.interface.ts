@@ -30,3 +30,9 @@ export class AuthRegisterParams{
     password: string;
     
 }
+
+export class TokenParams{
+    @IsString()
+    @IsNotEmpty()
+    token: string;
+}

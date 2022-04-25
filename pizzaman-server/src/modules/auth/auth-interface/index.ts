@@ -1,2 +1,2 @@
-export {AuthParams, AuthRegisterParams} from './auth.interface';
+export * from './auth.interface';
 

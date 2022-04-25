@@ -7,9 +7,10 @@ import { CartService } from "./cart.service";
 export class CartController {
     constructor(private readonly cartService: CartService) { }
 
-    @Get(':id')
-    async getCartById(@Param('id') id: number) {
-        return await this.cartService.getCartById(id);
+    @UseGuards(AuthGuard('jwt'))
+    @Get()
+    async getCartById(@Request() req) {
+        return await this.cartService.getCartById(req.user.sub);
     }
 
     @UseGuards(AuthGuard('jwt'))

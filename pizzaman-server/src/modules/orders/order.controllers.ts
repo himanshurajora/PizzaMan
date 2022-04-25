@@ -17,4 +17,10 @@ export class OrderController {
     async makeOrder(@Body() data, @Request() req){
         return await this.OrderService.addOrderItem(data, req.user.sub);
     }
+
+    @UseGuards(AuthGuard('jwt'))
+    @Get()
+    async getAllOrders(@Request() req){
+        return await this.OrderService.getAllOrders(req.user.sub)
+    }
 }

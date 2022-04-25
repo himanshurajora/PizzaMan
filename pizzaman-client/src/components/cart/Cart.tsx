@@ -1,9 +1,45 @@
 import { ICartProps } from "../../interfaces";
+import { useNavigate, useLocation, Navigate } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
 import "./Cart.css"
+import * as axios from "axios";
+import { ServerConfig } from "../../config/server.config";
 export default function Cart(props: ICartProps) {
-
+    const navigate = useNavigate();
+    const location = useLocation();
+    const authContext = useAuth();
     const removeFromCart = (index: number) => {
         props.setCartItems(props.cartItems.filter((item, i) => i !== index));
+    }
+
+    const handleOrder = async () => {
+        if (!authContext.loggedIn) {
+            navigate('/login', {
+                state: {
+                    from: location
+                },
+                replace: false
+            })
+        } else {
+            try {
+                const price = props.cartItems[0].size.price + props.cartItems[0].ingredients.map((item) => item.price).reduce((a, b) => a + b, 0);
+                const ingredients = props.cartItems[0].ingredients.map((item) => { return { ingredientId: item.id } })
+                console.log(price, ingredients)
+
+                const response = await axios.default.post(`${ServerConfig.development.url}/orders`, {
+                    price, orderItem: ingredients
+                }, {
+                    headers: {
+                        'Authorization': `Bearer ${authContext.token}`
+                    }
+                })
+
+                alert("Purchased Successfully")
+                props.setCartItems([...props.cartItems.splice(1)])
+            } catch (err) {
+                alert("Some Error Occured");
+            }
+        }
     }
 
     return (
@@ -88,6 +124,7 @@ export default function Cart(props: ICartProps) {
                         <div className="cart-order-btn-container">
                             <button
                                 className="cart-order-btn"
+                                onClick={handleOrder}
                             >
                                 Place Your Order
                             </button>

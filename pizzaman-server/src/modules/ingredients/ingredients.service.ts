@@ -15,4 +15,13 @@ export class IngredientsService {
     async addIngredient(newIngredient): Promise<Ingredents> {
         return await this.IngredientModel.create<Ingredents>(newIngredient);
     }
+
+    async addManyIngredient(newIngredients): Promise<Ingredents[]>{
+        var ingredients = []
+        newIngredients.forEach(async (ingredient)=>{
+            ingredients.push(await this.IngredientModel.create<Ingredents>(ingredient));
+        })
+
+        return ingredients
+    }
 }

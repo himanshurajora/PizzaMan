@@ -1,0 +1,78 @@
+.profile-title{
+    padding: 20px 0px;
+    font-size: xx-large;
+    color: var(--primary-color);
+    text-align: center;
+}
+
+.profile-content{
+    padding: 20px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-item{
+    padding: 10px 20px;
+    text-align: center;
+    border: 1px solid var(--primary-shadow-color);
+    width: min(600px , 90%);
+    box-shadow: 0px 4px 9px var(--primary-shadow-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 10px 0px;
+    border-radius: 10px;
+}
+
+.profile-item-row{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.profile-item-type{
+    font-size: large;
+}
+
+.profile-item-total{
+    font-size: x-large;
+    font-weight: 900;
+}
+
+.profile-item-remove-btn{
+    padding: 8px;
+    background-color: var(--danger-color);
+    border:none;
+    border-radius: 10px;
+    font-size: 1.3rem;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+}
+
+.profile-item-remove-btn:hover{
+    background-color: var(--danger-hover-color);
+}
+
+.profile-order-btn{
+    padding: 20px;
+    background-color: var(--primary-color);
+    border:none;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+}
+
+.profile-order-btn:hover{
+    background-color: var(--primary-gradient-color);
+}
+
+.profile-order-btn-container{
+    text-align: center;
+}
